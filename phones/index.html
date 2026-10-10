@@ -1,0 +1,975 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="iPhone 17/18 lineup vs Pixel 10/11 lineup at the 512GB tier: price, battery, weight, brightness, charging and RAM.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Flagship Phones at 512GB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: spec-sheet page. Summary strip, then a scatter, then one bar chart per metric, year-over-year cards, and the full table. */
+:root {
+  --bg: #f5f6f7;
+  --surface: #ffffff;
+  --ink: #111417;
+  --ink-2: #4b5259;
+  --ink-3: #79818a;
+  --rule: #dde1e5;
+  --grid: #eceff2;
+  --apple: #2a78d6;
+  --google: #eb6834;
+  --good-bg: #e3f3ea;
+  --good-ink: #136c3e;
+  --chip-bg: #eef0f2;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111315; --surface: #1a1d20; --ink: #eef0f2; --ink-2: #b6bcc3; --ink-3: #8a929b;
+    --rule: #2e3338; --grid: #24282c; --apple: #3987e5; --google: #d95926;
+    --good-bg: #173527; --good-ink: #7fd6a5; --chip-bg: #262a2e; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111315; --surface: #1a1d20; --ink: #eef0f2; --ink-2: #b6bcc3; --ink-3: #8a929b;
+  --rule: #2e3338; --grid: #24282c; --apple: #3987e5; --google: #d95926;
+  --good-bg: #173527; --good-ink: #7fd6a5; --chip-bg: #262a2e; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; padding-block: 28px 56px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(28px, 5vw, 42px); font-weight: 800; line-height: 1.05; }
+h2 { font-size: 20px; font-weight: 700; }
+h3 { font-size: 14px; font-weight: 700; }
+p { margin: 0; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.lede { color: var(--ink-2); max-width: 68ch; }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+header { display: grid; gap: 10px; }
+
+/* filters */
+.filters { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; padding: 12px 14px; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; }
+.seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+.seg button { font: 500 13px var(--body); background: transparent; color: var(--ink-2); border: 0; padding: 6px 12px; cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--rule); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.seg button:focus-visible, .chk input:focus-visible, th button:focus-visible { outline: 2px solid var(--apple); outline-offset: 2px; }
+.flabel { font-size: 12px; color: var(--ink-3); font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.06em; }
+.fgroup { display: flex; gap: 8px; align-items: center; }
+.chk { display: flex; gap: 6px; align-items: center; font-size: 13px; color: var(--ink-2); cursor: pointer; }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--ink-2); margin-left: auto; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.sw.apple { background: var(--apple); }
+.sw.google { background: var(--google); }
+.sw.old { background: transparent; border: 2px solid var(--ink-3); }
+
+/* panels */
+.panel { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px; display: grid; gap: 12px; min-width: 0; }
+.panel-head { display: grid; gap: 4px; }
+.panel-head p { color: var(--ink-2); font-size: 13px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: 16px; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+svg text { font-family: var(--body); fill: var(--ink-2); font-size: 12px; }
+svg .val { font-family: var(--mono); fill: var(--ink); font-size: 11.5px; }
+svg .axis { fill: var(--ink-3); font-size: 11px; font-family: var(--mono); }
+svg .gridline { stroke: var(--grid); stroke-width: 1; }
+svg .baseline { stroke: var(--rule); stroke-width: 1; }
+.hit { cursor: default; }
+.hit:hover rect.bar, .hit:hover circle { filter: brightness(1.12); }
+
+/* tooltip */
+#tip { position: fixed; pointer-events: none; z-index: 20; background: var(--ink); color: var(--bg); font-size: 12.5px; padding: 8px 10px; border-radius: 8px; max-width: 260px; line-height: 1.4; box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+#tip b { font-family: var(--display); font-size: 13px; }
+
+/* year-over-year */
+.yoy { border: 1px solid var(--rule); border-radius: var(--radius); padding: 14px; display: grid; gap: 10px; background: var(--surface); }
+.yoy-title { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.yoy-title .arrow { color: var(--ink-3); }
+.yoy dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0; font-size: 13px; }
+.yoy dt { color: var(--ink-3); }
+.yoy dd { margin: 0; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.up { color: var(--good-ink); }
+.down { color: var(--ink-2); }
+.brand-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; align-self: center; }
+
+/* table */
+.tablewrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 13px; min-width: 980px; }
+th, td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--grid); white-space: nowrap; font-variant-numeric: tabular-nums; }
+th:first-child, td:first-child { text-align: left; position: sticky; left: 0; background: var(--surface); }
+td:first-child { font-weight: 600; }
+thead th { font: 600 11.5px var(--mono); text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-3); border-bottom: 1px solid var(--rule); }
+th button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-transform: inherit; letter-spacing: inherit; }
+th button[data-dir]::after { content: attr(data-dir); margin-left: 4px; }
+td.best { background: var(--good-bg); color: var(--good-ink); font-weight: 600; }
+td .note { color: var(--ink-3); font-size: 11px; margin-left: 4px; }
+.tag { font: 500 10.5px var(--mono); padding: 1px 6px; border-radius: 99px; background: var(--chip-bg); color: var(--ink-2); margin-left: 6px; letter-spacing: 0.02em; }
+td.mono { font-family: var(--mono); }
+.dim { color: var(--ink-3); }
+
+.feat td, .feat th { text-align: center; }
+.feat td:first-child, .feat th:first-child { text-align: left; }
+.feat table { min-width: 1060px; }
+.yes { color: var(--good-ink); font-weight: 600; }
+.no { color: var(--ink-3); }
+.unk { color: var(--ink-3); font-style: italic; }
+.txt { font-family: var(--mono); font-size: 12px; color: var(--ink); }
+.zoom-key { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink-2); }
+.zoom-key span { display: inline-flex; gap: 6px; align-items: center; }
+.zoom-key svg { width: 14px; height: 14px; flex: none; }
+.pick-head { display: grid; gap: 6px; }
+.picks { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr)); gap: 14px; }
+.pick { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 14px; display: grid; gap: 8px; align-content: start; }
+.pick.top { border-color: var(--good-ink); box-shadow: inset 0 0 0 1px var(--good-ink); }
+.pick .role { font: 600 11px var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); }
+.pick.top .role { color: var(--good-ink); }
+.pick .price { font: 500 22px var(--mono); font-variant-numeric: tabular-nums; }
+.pick .price small { display: block; font-size: 12px; color: var(--ink-3); }
+.pick ul { margin: 0; padding-left: 16px; font-size: 13px; color: var(--ink-2); display: grid; gap: 2px; }
+.pick .verdict { font-size: 13px; color: var(--ink); border-top: 1px solid var(--grid); padding-top: 8px; }
+.pick-group { font: 600 12px var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); grid-column: 1 / -1; padding-top: 6px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: 500 13px var(--body); display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 99px; border: 1px solid var(--rule); background: transparent; color: var(--ink-2); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.chip:disabled { opacity: .4; cursor: not-allowed; }
+.chip:focus-visible { outline: 2px solid var(--apple); outline-offset: 2px; }
+.h2h-status { font-size: 13px; color: var(--ink-3); }
+.score { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; }
+.score-card { border: 1px solid var(--rule); border-radius: var(--radius); padding: 12px; display: grid; gap: 6px; background: var(--surface); }
+.score-card .wins { font: 500 26px var(--mono); }
+.score-card .wins small { font-size: 12px; color: var(--ink-3); }
+.score-card .areas { display: flex; flex-wrap: wrap; gap: 4px; }
+.h2h table { min-width: 0; }
+.h2h th, .h2h td { text-align: left; white-space: normal; vertical-align: top; }
+.h2h tbody th { font: 500 13px var(--body); color: var(--ink-2); text-transform: none; letter-spacing: 0; position: sticky; left: 0; background: var(--surface); min-width: 130px; }
+.h2h thead th { min-width: 140px; }
+.h2h td { font-variant-numeric: tabular-nums; }
+.h2h tr.area th { font: 600 11.5px var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink); background: var(--chip-bg); padding-top: 10px; }
+.h2h tr.area td { background: var(--chip-bg); }
+.notice { border: 1px dashed var(--rule); border-radius: var(--radius); padding: 14px; display: grid; gap: 4px; font-size: 13px; color: var(--ink-2); }
+.notice h3 { color: var(--ink); }
+footer { display: grid; gap: 10px; font-size: 12.5px; color: var(--ink-2); }
+footer ul { margin: 0; padding-left: 18px; display: grid; gap: 3px; }
+footer a { color: var(--ink-2); }
+@media (max-width: 640px) {
+  .legend { margin-left: 0; }
+  .filters { position: static; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">512GB tier · US launch prices &amp; Ho Chi Minh City shop prices · as of Oct 10, 2026</div>
+    <h1>iPhone 17 &amp; 18 vs Pixel 10 &amp; 11</h1>
+    <p class="lede">Every model is shown at its 512GB price, so each price includes the extra storage. Switch the currency to see what each phone costs in Ho Chi Minh City. Solid bars are the 2026 models and outlined bars are the 2025 models they replace. Hover any bar or dot for the full spec line.</p>
+  </header>
+
+  <section class="pick-head" id="shortlist" aria-labelledby="sl-title">
+    <h2 id="sl-title">Which one to buy in Ho Chi Minh City</h2>
+    <p class="lede">Every model with a 512GB price in HCMC, grouped by size. The base Pixel 10 is left out because no shop lists a 512GB one. Phones are judged on price, camera, battery and features. This leaves out the Pixel's warranty and service gap in Vietnam. Prices are the lowest new 512GB shop prices. Each "+" line is what you gain over the Pixel 10 Pro XL.</p>
+  </section>
+  <div class="picks" id="picks"></div>
+  <div class="grid3" id="sl-bars"></div>
+
+  <section class="panel" id="h2h" aria-labelledby="h2h-title">
+    <div class="panel-head">
+      <h2 id="h2h-title">Head-to-head</h2>
+      <p>Pick 2 to 4 phones to compare in every area. The winner in each row is highlighted, and ties highlight every phone that shares the best value. The cards count rows won in each area.</p>
+    </div>
+    <div class="chips" id="h2h-chips" role="group" aria-label="Phones to compare"></div>
+    <p class="h2h-status" id="h2h-status" aria-live="polite"></p>
+    <div class="score" id="h2h-score"></div>
+    <div class="tablewrap h2h"><table id="h2h-table"></table></div>
+  </section>
+
+  <div class="filters" role="group" aria-label="Filters">
+    <div class="fgroup"><span class="flabel">Brand</span>
+      <div class="seg" id="f-brand">
+        <button type="button" data-v="all" aria-pressed="true">Both</button>
+        <button type="button" data-v="apple" aria-pressed="false">Apple</button>
+        <button type="button" data-v="google" aria-pressed="false">Google</button>
+      </div>
+    </div>
+    <div class="fgroup"><span class="flabel">Year</span>
+      <div class="seg" id="f-year">
+        <button type="button" data-v="all" aria-pressed="true">Both</button>
+        <button type="button" data-v="2025" aria-pressed="false">2025</button>
+        <button type="button" data-v="2026" aria-pressed="false">2026</button>
+      </div>
+    </div>
+    <div class="fgroup"><span class="flabel">Price</span>
+      <div class="seg" id="f-cur">
+        <button type="button" data-v="usd" aria-pressed="true">US $</button>
+        <button type="button" data-v="vnd" aria-pressed="false">HCMC ₫</button>
+      </div>
+    </div>
+    <label class="chk"><input type="checkbox" id="f-fold" checked> Include foldables</label>
+    <div class="legend" aria-hidden="true">
+      <span><i class="sw apple"></i>Apple</span>
+      <span><i class="sw google"></i>Google</span>
+      <span><i class="sw old"></i>2025 model</span>
+    </div>
+  </div>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Price vs battery</h2>
+      <p>512GB price (in the currency picked above) against battery capacity. Toward the bottom right means more battery for less money. iPhones get more runtime per mAh than Pixels, so compare battery within each brand. The iPhone Duo is missing because Apple hasn't published its capacity.</p>
+    </div>
+    <div id="scatter"></div>
+  </section>
+
+  <section class="grid2" id="bars"></section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Camera zoom range</h2>
+      <p>Each row shows where a phone's rear cameras sit on the zoom range, from ultrawide (0.5x) to 10x. Solid dots are separate lenses, sized by megapixels. Rings are "optical-quality" crops from a high-resolution sensor. Beyond the rings, zoom is digital. Hover a row for the full camera spec.</p>
+    </div>
+    <div class="zoom-key" aria-hidden="true">
+      <span><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="var(--ink-2)"/></svg>Lens (bigger = more MP)</span>
+      <span><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="5" fill="none" stroke="var(--ink-2)" stroke-width="2"/></svg>Optical-quality crop</span>
+    </div>
+    <div id="zoom"></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Camera and feature comparison</h2>
+      <p>✓ means the phone has it, — means it doesn't, and ? means it isn't confirmed in any spec sheet I could find.</p>
+    </div>
+    <div class="tablewrap feat"><table id="feat"></table></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>What changed year over year</h2>
+      <p>Each 2026 model next to the 2025 model it replaces, both at 512GB.</p>
+    </div>
+    <div class="grid3" id="yoy"></div>
+    <div class="notice">
+      <h3>Base iPhone 18 isn't out yet</h3>
+      <p>Apple split its 2026 launch. The 18 Pro, 18 Pro Max and iPhone Duo shipped in the fall, and the base iPhone 18, the 18e and the Air 2 are expected in spring 2027. Rumored specs: a 6.3-inch display and an A20 chip on a 2nm process. With no confirmed numbers, it's left out of the charts.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Full spec table</h2>
+      <p>Click a column to sort. The best value in each column is highlighted.</p>
+    </div>
+    <div class="tablewrap"><table id="tbl"></table></div>
+  </section>
+
+  <footer>
+    <p><b>Ho Chi Minh City prices</b> are in million đồng (tr), for new 512GB phones, checked Oct 10, 2026. iPhones are official Vietnam (VN/A) models: the chart uses the CellphoneS shop price, and the tooltip also shows Apple Vietnam's list price when it differs. Google doesn't sell Pixels in Vietnam, so Pixel prices are grey imports, mostly US models, at Di Động Mỹ and Digiphone. The chart uses the lower of the two prices, and the tooltip shows both. Grey imports come with a shop warranty only, usually 12 months. Shop prices change often.</p>
+    <p><b>How to read the numbers.</b> US prices are launch MSRP for 512GB. The base Pixel 10 had no 512GB option in the US, so it appears at 256GB with a tag. The Pixel 11 Pro and Pro XL 512GB prices come from retailer listings, since Google's store shows only the starting prices ($1,099 and $1,299). iPhone battery figures are for the US eSIM models; Apple doesn't publish mAh, so they come from regulatory filings. "Wired W" for iPhones is the adapter rating Apple cites for its fast-charge claim. Video hours are Apple's own ratings; Google doesn't publish an equivalent.</p>
+    <ul id="sources"></ul>
+  </footer>
+</div>
+<div id="tip" hidden></div>
+
+<script>
+const PHONES = [
+  // Apple 2025
+  { id:"i17", name:"iPhone 17", brand:"apple", year:2025, fold:false, price:999, chip:"A19", ram:8, screen:"6.3", hz:120, nits:3000, mah:3692, weight:177, thick:7.95, tele:null, teleMP:null, wired:40, wireless:25, video:30, pred:null },
+  { id:"iair", name:"iPhone Air", brand:"apple", year:2025, fold:false, price:1199, chip:"A19 Pro", ram:12, screen:"6.5", hz:120, nits:3000, mah:3149, weight:165, thick:5.64, tele:null, teleMP:null, wired:20, wireless:20, video:27, pred:null },
+  { id:"i17p", name:"iPhone 17 Pro", brand:"apple", year:2025, fold:false, price:1299, chip:"A19 Pro", ram:12, screen:"6.3", hz:120, nits:3000, mah:4252, weight:204, thick:8.75, tele:4, teleMP:48, wired:40, wireless:25, video:33, pred:null },
+  { id:"i17pm", name:"iPhone 17 Pro Max", brand:"apple", year:2025, fold:false, price:1399, chip:"A19 Pro", ram:12, screen:"6.9", hz:120, nits:3000, mah:5088, weight:231, thick:8.75, tele:4, teleMP:48, wired:40, wireless:25, video:39, pred:null },
+  // Apple 2026
+  { id:"i18p", name:"iPhone 18 Pro", brand:"apple", year:2026, fold:false, price:1399, chip:"A20 Pro", ram:12, screen:"6.3", hz:120, nits:3000, mah:4288, weight:211, thick:8.75, tele:4, teleMP:48, wired:60, wireless:25, video:34, videoNote:"SIM-model rating", pred:"i17p" },
+  { id:"i18pm", name:"iPhone 18 Pro Max", brand:"apple", year:2026, fold:false, price:1499, chip:"A20 Pro", ram:12, screen:"6.9", hz:120, nits:3000, mah:5567, weight:249, thick:8.75, tele:4, teleMP:48, wired:60, wireless:25, video:45, pred:"i17pm" },
+  { id:"iduo", name:"iPhone Duo", brand:"apple", year:2026, fold:true, price:2199, chip:"A20 Pro", ram:12, screen:"7.6 / 5.4", hz:120, nits:3000, mah:null, weight:254, thick:11.3, tele:null, teleMP:null, wired:60, wireless:25, video:44, videoNote:"outer screen", pred:null, ramNote:"reported" },
+  // Google 2025
+  { id:"p10", name:"Pixel 10", brand:"google", year:2025, fold:false, price:899, priceTier:"256GB", chip:"Tensor G5", ram:12, screen:"6.3", hz:120, nits:3000, mah:4970, weight:204, thick:8.6, tele:5, teleMP:10.8, wired:29, wireless:15, video:null, pred:null },
+  { id:"p10p", name:"Pixel 10 Pro", brand:"google", year:2025, fold:false, price:1219, chip:"Tensor G5", ram:16, screen:"6.3", hz:120, nits:3300, mah:4870, weight:207, thick:8.6, tele:5, teleMP:48, wired:30, wireless:15, video:null, pred:null },
+  { id:"p10pxl", name:"Pixel 10 Pro XL", brand:"google", year:2025, fold:false, price:1319, chip:"Tensor G5", ram:16, screen:"6.8", hz:120, nits:3300, mah:5200, weight:232, thick:8.5, tele:5, teleMP:48, wired:45, wireless:25, video:null, pred:null },
+  { id:"p10f", name:"Pixel 10 Pro Fold", brand:"google", year:2025, fold:true, price:1919, chip:"Tensor G5", ram:16, screen:"8.0 / 6.4", hz:120, nits:3000, mah:5015, weight:258, thick:10.8, tele:5, teleMP:10.8, wired:30, wireless:15, video:null, pred:null },
+  // Google 2026
+  { id:"p11", name:"Pixel 11", brand:"google", year:2026, fold:false, price:1019, chip:"Tensor G6", ram:12, screen:"6.3", hz:120, nits:3000, mah:4985, weight:197, thick:8.6, tele:5, teleMP:10.9, wired:30, wireless:25, video:null, pred:"p10" },
+  { id:"p11p", name:"Pixel 11 Pro", brand:"google", year:2026, fold:false, price:1219, priceNote:"retailer", chip:"Tensor G6", ram:16, screen:"6.3", hz:120, nits:3600, mah:4850, weight:204, thick:8.4, tele:5, teleMP:50, wired:30, wireless:25, video:null, pred:"p10p" },
+  { id:"p11pxl", name:"Pixel 11 Pro XL", brand:"google", year:2026, fold:false, price:1419, priceNote:"retailer", chip:"Tensor G6", ram:16, screen:"6.8", hz:120, nits:3600, mah:5115, weight:226, thick:8.5, tele:5, teleMP:48, wired:45, wireless:25, video:null, pred:"p10pxl" },
+  { id:"p11f", name:"Pixel 11 Pro Fold", brand:"google", year:2026, fold:true, price:2019, chip:"Tensor G6", ram:16, screen:"8.0 / 6.5", hz:120, nits:3600, mah:4806, weight:239, thick:10.1, weightNote:"retailer listing", tele:5, teleMP:10.8, wired:null, wireless:25, video:null, pred:"p10f" },
+];
+
+/* Ho Chi Minh City prices for 512GB, million VND, checked Oct 10, 2026.
+   iPhones: Apple Vietnam list price, and the CellphoneS shop price (FPT Shop for the iPhone Duo pre-order).
+   Pixels are not sold officially in Vietnam, so these are new grey imports (mostly US models) at two HCMC shops.
+   "shop" is the lowest of the listed prices; "hi" is the other shop's price. */
+const VN = {
+  i17:   { list:31.499, shop:31.49, where:"CellphoneS" },
+  iair:  { list:38.499, shop:28.99, where:"CellphoneS" },
+  i17p:  { list:41.499, shop:39.89, where:"CellphoneS" },
+  i17pm: { list:44.499, shop:42.99, where:"CellphoneS" },
+  i18p:  { list:45.499, shop:45.49, where:"CellphoneS" },
+  i18pm: { list:48.499, shop:48.49, where:"CellphoneS" },
+  iduo:  { list:71.499, shop:71.49, where:"FPT Shop pre-order, in stores Oct 23" },
+  p10p:  { shop:27.99, hi:29.59, where:"Di Động Mỹ – Digiphone" },
+  p10pxl:{ shop:28.99, hi:30.59, where:"Di Động Mỹ – Digiphone" },
+  p10f:  { shop:37.99, hi:42.99, where:"Di Động Mỹ – Digiphone" },
+  p11:   { shop:26.99, hi:27.69, where:"Di Động Mỹ – Digiphone" },
+  p11p:  { shop:32.49, hi:33.99, where:"Di Động Mỹ – Digiphone" },
+  p11pxl:{ shop:37.99, hi:39.39, where:"Di Động Mỹ – Digiphone" },
+  p11f:  { shop:50.99, hi:62.19, where:"Di Động Mỹ – Digiphone" },
+};
+PHONES.forEach(p => { p.vnd = VN[p.id]?.shop ?? null; });
+
+/* Rear cameras. uw/main/tele are megapixels (tele is [MP, zoom]); crops are optical-quality crop zoom levels. */
+const CAM = {
+  i17:   { uw:48, main:48, tele:null,   crops:[2],    front:"18MP", video:"4K60" },
+  iair:  { uw:null, main:48, tele:null, crops:[2],    front:"18MP", video:"4K60" },
+  i17p:  { uw:48, main:48, tele:[48,4], crops:[2,8],  front:"18MP", video:"4K120" },
+  i17pm: { uw:48, main:48, tele:[48,4], crops:[2,8],  front:"18MP", video:"4K120" },
+  i18p:  { uw:48, main:48, tele:[48,4], crops:[2,8],  front:"18MP", video:"4K120", extra:"Variable aperture main (f/1.48–f/4.0)" },
+  i18pm: { uw:48, main:48, tele:[48,4], crops:[2,8],  front:"18MP", video:"4K120", extra:"Variable aperture main (f/1.48–f/4.0)" },
+  iduo:  { uw:48, main:48, tele:null,   crops:[2],    front:"12MP outer + under-display inner", video:null },
+  p10:   { uw:13, main:48, tele:[10.8,5], crops:[2],  front:"10.5MP", video:"4K60" },
+  p10p:  { uw:48, main:50, tele:[48,5], crops:[2,10], front:"42MP", video:"8K (Video Boost)" },
+  p10pxl:{ uw:48, main:50, tele:[48,5], crops:[2,10], front:"42MP", video:"8K (Video Boost)" },
+  p10f:  { uw:10.5, main:48, tele:[10.8,5], crops:[2], front:"10MP ×2", video:"4K60" },
+  p11:   { uw:13, main:48, tele:[10.8,5], crops:[2],  front:"10.5MP", video:"4K60" },
+  p11p:  { uw:48, main:50, tele:[48,5], crops:[2,10], front:"42MP", video:"8K30" },
+  p11pxl:{ uw:48, main:50, tele:[48,5], crops:[2,10], front:"42MP", video:"8K30", extra:"Larger 1/1.95\" telephoto sensor than the 11 Pro" },
+  p11f:  { uw:10.5, main:48, tele:[10.8,5], crops:[2], front:"10MP ×2", video:"4K60" },
+};
+
+/* Features. true / false / null (not confirmed) / short text. */
+const FEATS = [
+  { key:"tele", label:"Telephoto" },
+  { key:"k8", label:"8K video" },
+  { key:"k4120", label:"4K 120fps" },
+  { key:"log", label:"ProRes / Log" },
+  { key:"varAp", label:"Variable aperture" },
+  { key:"camBtn", label:"Camera button" },
+  { key:"action", label:"Action button" },
+  { key:"faceid", label:"Face ID" },
+  { key:"fp", label:"Fingerprint" },
+  { key:"usb", label:"USB-C speed" },
+  { key:"wifi7", label:"Wi-Fi 7" },
+  { key:"uwb", label:"UWB" },
+  { key:"sat", label:"Satellite SOS" },
+  { key:"mag", label:"Magnets (Qi2)" },
+  { key:"stereo", label:"Stereo speakers" },
+  { key:"updates", label:"OS updates" },
+];
+const F_IPHONE = { k8:false, fp:false, faceid:true, camBtn:true, action:true, wifi7:true, uwb:true, sat:true, mag:true, stereo:true, updates:"not stated" };
+const F_IPRO = { ...F_IPHONE, k4120:true, log:true, usb:"USB 3 (10Gb/s)", varAp:false };
+const F_PIXEL = { k4120:false, log:false, varAp:false, camBtn:false, action:false, faceid:false, fp:true, usb:"USB 3.2", mag:true, stereo:true, updates:"7 years" };
+const FEAT = {
+  i17:   { ...F_IPHONE, k4120:false, log:false, varAp:false, usb:"USB 2" },
+  iair:  { ...F_IPHONE, k4120:false, log:false, varAp:false, usb:"USB 2", stereo:false },
+  i17p:  { ...F_IPRO },
+  i17pm: { ...F_IPRO },
+  i18p:  { ...F_IPRO, varAp:true },
+  i18pm: { ...F_IPRO, varAp:true },
+  iduo:  { ...F_IPHONE, k4120:null, log:null, varAp:false, camBtn:null, action:null, faceid:null, usb:null, uwb:null, sat:null },
+  p10:   { ...F_PIXEL, k8:false, wifi7:false, uwb:false, sat:true },
+  p10p:  { ...F_PIXEL, k8:"Video Boost", wifi7:true, uwb:true, sat:true },
+  p10pxl:{ ...F_PIXEL, k8:"Video Boost", wifi7:true, uwb:true, sat:true },
+  p10f:  { ...F_PIXEL, k8:false, wifi7:true, uwb:true, sat:true },
+  p11:   { ...F_PIXEL, k8:false, wifi7:null, uwb:null, sat:null },
+  p11p:  { ...F_PIXEL, k8:true, wifi7:true, uwb:true, sat:true },
+  p11pxl:{ ...F_PIXEL, k8:true, wifi7:true, uwb:true, sat:true },
+  p11f:  { ...F_PIXEL, k8:false, wifi7:null, uwb:null, sat:null },
+};
+
+const SOURCES = [
+  ["Apple: iPhone 18 Pro / Pro Max tech specs", "https://www.apple.com/in/iphone-18-pro/specs/"],
+  ["Apple: iPhone 17 tech specs", "https://www.apple.com/iphone-17/specs/"],
+  ["Apple: iPhone Air tech specs", "https://www.apple.com/iphone-air/specs/"],
+  ["MacRumors: iPhone 18 Pro battery capacities from regulatory filings", "https://www.macrumors.com/2026/07/06/iphone-18-pro-battery-capacities-revealed/"],
+  ["Cult of Mac: iPhone 18 Pro US pricing", "https://www.cultofmac.com/?p=938615"],
+  ["Esquire India: iPhone 18 Pro Max US price by storage", "https://www.esquireindia.co.in/tech-and-auto/gadgets/iphone-18-pro-max-price-us-256gb-512gb-1-tb-2-tb-monthly-payment"],
+  ["Macworld: iPhone Duo specs and price", "https://www.macworld.com/article/2629813/iphone-duo-folding-design-price-specs-release-date.html"],
+  ["WhistleOut: iPhone 17 lineup prices by storage", "https://www.whistleout.com/CellPhones/Guides/iPhone-17-model-comparison"],
+  ["GSMArena: Pixel 11 Pro XL review", "https://www.gsmarena.com/google_pixel_11_pro_xl-review-2994.php"],
+  ["GSMArena: Pixel 11 vs Pixel 11 Pro", "https://www.gsmarena.com/pixel_11_vs_pixel_11_pro_battery_camera_price_compared-news-74597.php"],
+  ["Engadget: Pixel 11 Pro Fold and lineup pricing", "https://www.engadget.com/2235151/this-is-the-1900-google-pixel-11-pro-fold/"],
+  ["Droid Life: Pixel 11 Pro Fold review", "https://www.droid-life.com/2026/09/17/pixel-11-pro-fold-review-good-foldable-thats-feeling-dated/"],
+  ["Smartprix: Pixel 11 Pro XL US pricing", "https://us.smartprix.com/mobiles/google-pixel-11-pro-xl-ppd1vykrphss"],
+  ["Smartprix: Pixel 11 512GB", "https://us.smartprix.com/mobiles/google-pixel-11-5g-12gb-ram-512gb-ppd1sek0yjpo"],
+  ["GSMArena: Pixel 10 Pro Fold launch specs", "https://m.gsmarena.com/google_pixel_10_pro_fold_ups_battery_capacity_and_brings_a_larger_cover_display-amp-69126.php"],
+  ["Swappa: Pixel 10 Pro vs Pro XL specs", "https://swappa.com/en/compare/google-pixel-10-pro-xl/vs/google-pixel-10-pro"],
+  ["MacRumors: iPhone 18 Pro roundup (launch dates, split lineup)", "https://www.macrumors.com/roundup/iphone-18-pro/"],
+  ["GSMArena: Pixel 11 Pro specs", "https://www.gsmarena.com/google_pixel_11_pro_5g-14801.php"],
+  ["GSMArena: Pixel 11 Pro XL specs", "https://www.gsmarena.com/google_pixel_11_pro_xl_5g-14800.php"],
+  ["Android Headlines: Pixel 11 specs", "https://androidheadlines.com/google-pixel-11-specifications"],
+  ["91mobiles: Pixel 11 Pro Fold specs", "https://www.91mobiles.com/google-pixel-11-pro-fold-price-in-india?ty=specs"],
+  ["VietNamNet: Apple Vietnam list prices, iPhone 17 lineup", "https://vietnamnet.vn/bang-gia-iphone-17-iphone-17-air-iphone-17-pro-va-17-pro-max-tai-viet-nam-2440936.html"],
+  ["Điện Máy Chợ Lớn: Apple Vietnam list prices, iPhone 18 Pro / Pro Max", "https://dienmaycholon.com/kinh-nghiem-mua-sam/iphone-18-gia-bao-nhieu"],
+  ["CellphoneS: iPhone price list", "https://cellphones.com.vn/sforum/bang-gia-cac-dong-dien-thoai-iphone-hien-nay"],
+  ["VnExpress: iPhone Duo Vietnam pricing", "https://vnexpress.net/iphone-lan-dau-co-gia-tram-trieu-dong-tai-viet-nam-5118591.html"],
+  ["FPT Shop: iPhone Duo", "https://fptshop.com.vn/dien-thoai/iphone-duo"],
+  ["Di Động Mỹ (HCMC): Pixel listings", "https://www.didongmy.com/google"],
+  ["Digiphone (HCMC): Pixel listings", "https://digiphone.vn/collections/dien-thoai-google"],
+];
+
+const fmtVnd = v => v.toFixed(2).replace(/\.?0+$/,"")+"tr";
+function priceMetric() {
+  return state.cur==="usd"
+    ? { key:"price", isPrice:true, label:"US price at 512GB", fmt:v=>"$"+v.toLocaleString(), tick:t=>"$"+(t>=1000?(t/1000)+"k":t), better:"low", note:"US launch MSRP. Lower is better", missing:"No price" }
+    : { key:"vnd", isPrice:true, label:"HCMC price at 512GB", fmt:fmtVnd, tick:t=>t+"tr", better:"low", note:"Lowest new price at HCMC shops, in million ₫. Pixels are grey imports", missing:"No 512GB listing in HCMC" };
+}
+const METRICS = [
+  { key:"mah", label:"Battery capacity", unit:"mAh", fmt:v=>v.toLocaleString()+" mAh", better:"high", note:"Compare within a brand; iPhones run longer per mAh" },
+  { key:"weight", label:"Weight", unit:"g", fmt:v=>v+" g", better:"low", note:"Lower is lighter" },
+  { key:"nits", label:"Peak outdoor brightness", unit:"nits", fmt:v=>v.toLocaleString()+" nits", better:"high", note:"Manufacturer peak figure" },
+  { key:"wired", label:"Wired charging", unit:"W", fmt:v=>v+" W", better:"high", note:"iPhone figure is the adapter rating Apple cites" },
+  { key:"ram", label:"RAM at 512GB", unit:"GB", fmt:v=>v+" GB", better:"high", note:"Pixel Pro models step up to 16GB at 512GB" },
+];
+
+const state = { brand:"all", year:"all", fold:true, cur:"usd" };
+try { const s = JSON.parse(localStorage.getItem("phones-filter")||"null"); if (s) Object.assign(state, s); } catch(e) {}
+
+const byId = Object.fromEntries(PHONES.map(p=>[p.id,p]));
+const visible = () => PHONES.filter(p =>
+  (state.brand==="all" || p.brand===state.brand) &&
+  (state.year==="all" || String(p.year)===state.year) &&
+  (state.fold || !p.fold));
+
+const NS = "http://www.w3.org/2000/svg";
+function el(tag, attrs={}, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const [k,v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+const color = p => `var(--${p.brand})`;
+const priceText = p => "$"+p.price.toLocaleString() + (p.priceTier ? ` (${p.priceTier}, no 512GB in US)` : "");
+function vndText(p) {
+  const v = VN[p.id];
+  if (!v) return "HCMC: no 512GB listing";
+  let t = "HCMC: " + fmtVnd(v.shop) + (v.hi ? "–" + fmtVnd(v.hi) : "");
+  if (v.list && Math.abs(v.list - v.shop) > 0.05) t += ` (list ${fmtVnd(v.list)})`;
+  return t + `<br><span style="opacity:.7">${v.where}</span>`;
+}
+const pk = () => state.cur==="usd" ? "price" : "vnd";
+
+function niceTicks(max, n=4) {
+  const raw = max / n, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const step = [1,2,2.5,5,10].map(m=>m*mag).find(s => s >= raw);
+  const ticks = []; for (let t=0; t<=max+1e-9; t+=step) ticks.push(t);
+  if (ticks[ticks.length-1] < max) ticks.push(ticks[ticks.length-1]+step);
+  return ticks;
+}
+
+/* tooltip */
+const tip = document.getElementById("tip");
+function tipHTML(p) {
+  const parts = [
+    priceText(p),
+    vndText(p),
+    `${p.chip} · ${p.ram}GB RAM`,
+    `${p.screen}" · ${p.nits.toLocaleString()} nits`,
+    p.mah ? `${p.mah.toLocaleString()} mAh` : "Battery mAh not published",
+    p.weight ? `${p.weight} g` + (p.thick ? ` · ${p.thick} mm` : "") : "Weight not published",
+    p.tele ? `${p.tele}x telephoto (${p.teleMP}MP)` : "No telephoto lens",
+    `${p.wired ?? "?"} W wired · ${p.wireless} W wireless`,
+  ];
+  if (p.video) parts.push(`Up to ${p.video} h video`);
+  return `<b>${p.name}</b> <span style="opacity:.7">${p.year}</span><br>` + parts.join("<br>");
+}
+function bindTip(node, p, fn=tipHTML) {
+  node.addEventListener("pointerenter", ()=>{ tip.innerHTML = fn(p); tip.hidden = false; });
+  node.addEventListener("pointermove", e=>{
+    const w = tip.offsetWidth, h = tip.offsetHeight;
+    let x = e.clientX + 14, y = e.clientY + 14;
+    if (x + w > innerWidth - 8) x = e.clientX - w - 14;
+    if (y + h > innerHeight - 8) y = e.clientY - h - 14;
+    tip.style.left = Math.max(8,x)+"px"; tip.style.top = Math.max(8,y)+"px";
+  });
+  node.addEventListener("pointerleave", ()=>{ tip.hidden = true; });
+}
+
+/* horizontal bar chart per metric. Rows are grouped by model line so 2025 and 2026 sit together. */
+/* Shortlist: the four finalists for an HCMC buyer. */
+const SHORT = [
+  { id:"p10pxl", group:"Large phones", role:"Best value · my pick", top:true,
+    gains:["50MP main, 48MP ultrawide, 48MP 5x telephoto","10x optical-quality zoom, 42MP selfie","5,200 mAh, 45W wired, 25W Qi2","16GB RAM, Wi-Fi 7, updates until 2032"],
+    verdict:"Gets you the most camera and battery per đồng. It costs the same as an iPhone Air, which has one camera." },
+  { id:"p11pxl", role:"Newest Pixel",
+    gains:["+ Tensor G6, 8K30 recorded on the phone","+ 3,600 nits (vs 3,300), larger telephoto sensor","+ 6 g lighter, one more year of updates","− 85 mAh smaller battery"],
+    verdict:"A better phone, but not 9tr better. The main and ultrawide cameras are the same." },
+  { id:"i17pm", role:"Video pick",
+    gains:["+ 4K 120fps, ProRes RAW, Apple Log","+ longer real-world battery life per mAh","− 4x telephoto and 8x max crop (vs 5x and 10x)","− 12GB RAM, 18MP selfie"],
+    verdict:"The one to buy if you shoot serious video. It has most of what the 18 Pro Max has, for 5.5tr less." },
+  { id:"i18pm", role:"Max everything",
+    gains:["+ biggest battery (5,567 mAh), 45 h video","+ variable aperture, 60W charging","− heaviest here at 249 g","− 4x telephoto and 8x max crop"],
+    verdict:"Best video and battery life, at the highest price and weight." },
+  { id:"p10p", group:"Smaller phones", role:"Compact Pixel",
+    gains:["+ 6.3-inch body, 207 g (25 g lighter), 1tr cheaper","+ the same 50MP, 48MP and 48MP 5x cameras and 42MP selfie","− 4,870 mAh (330 less)","− 30W wired, 15W wireless"],
+    verdict:"The 10 Pro XL's cameras in a smaller phone. Pick it if the XL is too big." },
+  { id:"p11p", role:"Compact, newest Pixel",
+    gains:["+ Tensor G6, 8K30 on the phone, 3,600 nits","+ 6.3-inch body, 204 g","− 4,850 mAh (350 less)","− 30W wired"],
+    verdict:"The best small Android phone here, for 3.5tr more than the 10 Pro XL." },
+  { id:"i17p", role:"Compact video pick",
+    gains:["+ 4K 120fps, ProRes RAW, Apple Log","+ 6.3-inch body, 204 g","− 4,252 mAh, 4x telephoto, 8x max crop","− 12GB RAM, 18MP selfie"],
+    verdict:"The same video tools as the 17 Pro Max in a smaller phone, for 3tr less." },
+  { id:"iair", group:"Light and base models", role:"Thin and light",
+    gains:["+ 165 g and 5.64 mm, the lightest and thinnest here","+ A19 Pro, Camera Control","− one 48MP camera: no ultrawide, no telephoto","− 3,149 mAh (27 h video), mono speaker, USB 2"],
+    verdict:"Same price as the 10 Pro XL with far less camera and battery. Buy it only for how it feels in the hand." },
+  { id:"i17", role:"Base iPhone",
+    gains:["+ 177 g, 7.95 mm","+ 48MP main and 48MP ultrawide, 18MP Center Stage selfie","− no telephoto (2x crop only), 3,692 mAh (30 h video)","− 8GB RAM, USB 2"],
+    verdict:"A solid everyday iPhone, but it costs 2.5tr more than the 10 Pro XL for less camera and battery." },
+  { id:"p11", role:"Cheapest new 512GB",
+    gains:["+ cheapest here, 197 g","+ real 5x telephoto (10.8MP), 4,985 mAh","− 48MP main, 13MP ultrawide, 10.5MP selfie","− 12GB RAM, 30W wired"],
+    verdict:"The budget pick. You still get a real 5x telephoto, which no base iPhone has." },
+  { id:"i18p", group:"Smaller phones", role:"Newest compact iPhone", insertAfter:"i17p",
+    gains:["+ 4K 120fps, ProRes/Log, variable aperture, 60W","+ 6.3-inch body, 211 g","− 4,288 mAh, 4x telephoto, 8x max crop","− costs 16.5tr more than the 10 Pro XL"],
+    verdict:"Adds variable aperture and faster charging over the 17 Pro for 5.6tr more. The 17 Pro is the better deal." },
+  { id:"iduo", group:"Foldables", role:"Folding iPhone",
+    gains:["+ 7.6-inch inner screen that folds to 5.4 inches","+ 48MP main and ultrawide, 44 h video on the outer screen","− no telephoto, battery size not published","− 254 g, 11.3 mm folded, about 2.5× the price"],
+    verdict:"Only if you want a folding iPhone. It's Apple's first foldable and reaches stores Oct 23." },
+  { id:"p10f", role:"Cheaper foldable",
+    gains:["+ 8-inch inner screen, 5,015 mAh","+ real 5x telephoto","− 48MP main, 10.5MP ultrawide, 10.8MP telephoto","− 258 g, 15W wireless"],
+    verdict:"The cheapest way to get a big folding screen, at about half the iPhone Duo's price." },
+  { id:"p11f", role:"Newest Pixel foldable",
+    gains:["+ Tensor G6, 3,600 nits, 25W Qi2","+ about 239 g (retailer listing)","− 4,806 mAh","− the two shops' prices are 11tr apart (50.99–62.19tr)"],
+    verdict:"Better than the 10 Pro Fold, but 13tr more. Worth it only if you want a fold and the newest chip." },
+];
+// keep the iPhone 18 Pro next to the 17 Pro in the "Smaller phones" group
+(() => { const i = SHORT.findIndex(x=>x.id==="i18p"), e = SHORT.splice(i,1)[0]; SHORT.splice(SHORT.findIndex(x=>x.id==="i17p")+1, 0, e); })();
+const SL_METRICS = [
+  { key:"vnd", label:"HCMC price", fmt:v=>v+"tr", tick:t=>t+"tr", better:"low", note:"Lowest new 512GB shop price" },
+  { key:"mah", label:"Battery", fmt:v=>v.toLocaleString()+" mAh", better:"high", note:"iPhones run longer per mAh" },
+  { key:"zoomMax", label:"Max optical-quality zoom", fmt:v=>v+"x", tick:t=>t+"x", better:"high", note:"Furthest zoom before it turns digital" },
+  { key:"frontMP", label:"Selfie camera", fmt:v=>v+"MP", better:"high", note:"Front camera resolution" },
+  { key:"nits", label:"Peak brightness", fmt:v=>v.toLocaleString()+" nits", better:"high", note:"Matters outdoors in Saigon sun" },
+  { key:"wired", label:"Wired charging", fmt:v=>v+" W", better:"high", note:"iPhone figure is the adapter rating Apple cites" },
+  { key:"weight", label:"Weight", fmt:v=>v+" g", better:"low", note:"Lower is lighter" },
+  { key:"ram", label:"RAM", fmt:v=>v+" GB", better:"high", note:"At 512GB" },
+  { key:"videoScore", label:"Video recording", fmt:v=>["","4K60","8K cloud","8K30","4K120 ProRes"][v], tick:()=>"", better:"high", note:"Ranked: ProRes/Log beats 8K for real-world video" },
+];
+
+const ORDER = ["i17","iair","i17p","i18p","i17pm","i18pm","iduo","p10","p11","p10p","p11p","p10pxl","p11pxl","p10f","p11f"];
+function barChart(m, rows) {
+  const box = document.createElement("div"); box.className = "panel";
+  const head = document.createElement("div"); head.className = "panel-head";
+  head.innerHTML = `<h3>${m.label}</h3><p>${m.note}</p>`;
+  box.appendChild(head);
+  const data = rows.filter(p => p[m.key] != null);
+  const missing = rows.filter(p => p[m.key] == null);
+  const W = m.W || 480, labelW = m.labelW || 128, valW = m.valW || 78, rowH = 22, gap = 6, top = 4, axisH = 20;
+  const H = top + data.length*(rowH+gap) + axisH;
+  const svg = el("svg", { viewBox:`0 0 ${W} ${H}`, role:"img", "aria-label":`${m.label} by model` });
+  const max = Math.max(...data.map(p=>p[m.key]));
+  const ticks = niceTicks(max);
+  const plotW = W - labelW - valW;
+  const x = v => labelW + v / ticks[ticks.length-1] * plotW;
+  const bestPool = data.filter(p=>!(m.key==="price" && p.priceTier)).map(p=>p[m.key]);
+  const bestVal = m.better==="low" ? Math.min(...bestPool) : Math.max(...bestPool);
+  ticks.forEach(t => {
+    el("line", { x1:x(t), x2:x(t), y1:top-2, y2:H-axisH+2, class:"gridline" }, svg);
+    const tx = el("text", { x:x(t), y:H-4, "text-anchor":"middle", class:"axis" }, svg);
+    tx.textContent = m.tick ? m.tick(t) : (t>=1000? (t/1000)+"k" : t);
+  });
+  el("line", { x1:labelW, x2:labelW, y1:top-2, y2:H-axisH+2, class:"baseline" }, svg);
+  const ord = m.order || ORDER;
+  const sorted = [...data].sort((a,b)=>ord.indexOf(a.id)-ord.indexOf(b.id));
+  sorted.forEach((p,i) => {
+    const y = top + i*(rowH+gap);
+    const g = el("g", { class:"hit" }, svg);
+    el("rect", { x:0, y:y-gap/2, width:W, height:rowH+gap, fill:"transparent" }, g);
+    const lab = el("text", { x:labelW-8, y:y+rowH/2+4, "text-anchor":"end" }, g);
+    lab.textContent = p.name;
+    if (p.year===2026) lab.setAttribute("style","fill:var(--ink);font-weight:600");
+    const w = Math.max(2, x(p[m.key]) - labelW);
+    const old = p.year===2025;
+    // bar with 4px rounded data-end, square at the baseline
+    const r = Math.min(4, w/2), bx = labelW, by = y+3, bh = rowH-6;
+    const d = `M${bx},${by} H${bx+w-r} Q${bx+w},${by} ${bx+w},${by+r} V${by+bh-r} Q${bx+w},${by+bh} ${bx+w-r},${by+bh} H${bx} Z`;
+    el("path", { d, class:"bar", fill: old ? "var(--surface)" : color(p), stroke: color(p), "stroke-width": old ? 1.75 : 0 }, g);
+    const v = el("text", { x:bx+w+6, y:y+rowH/2+4, class:"val" }, g);
+    let txt = m.fmt(p[m.key]);
+    if (m.key==="price" && p.priceTier) txt += " ·256";
+    if (p[m.key]===bestVal) txt += " ★";
+    v.textContent = txt;
+    bindTip(g, p);
+  });
+  svg.setAttribute("height", H);
+  box.appendChild(svg);
+  if (missing.length) {
+    const n = document.createElement("p"); n.style.cssText = "font-size:12px;color:var(--ink-3)";
+    n.textContent = (m.missing || "Not published") + ": " + missing.map(p=>p.name).join(", ");
+    box.appendChild(n);
+  }
+  return box;
+}
+
+/* scatter: price (y) vs battery (x) */
+function scatter(rows) {
+  const host = document.getElementById("scatter"); host.innerHTML = "";
+  const K = pk(), usd = K==="price";
+  const data = rows.filter(p=>p.mah && p[K]!=null);
+  if (!data.length) { host.textContent = "No models match these filters."; return; }
+  const W = 1000, H = 420, m = { l:62, r:24, t:16, b:44 };
+  const svg = el("svg", { viewBox:`0 0 ${W} ${H}`, role:"img", "aria-label":"Price versus battery capacity" }, host);
+  const xmin = 3000, xmax = 5800;
+  const ystep = usd ? 200 : 5;
+  const ymin = Math.floor(Math.min(...data.map(p=>p[K]))/ystep)*ystep;
+  const ymax = Math.ceil(Math.max(...data.map(p=>p[K]))/ystep)*ystep;
+  const x = v => m.l + (v-xmin)/(xmax-xmin)*(W-m.l-m.r);
+  const y = v => H-m.b - (v-ymin)/(ymax-ymin)*(H-m.t-m.b);
+  for (let v=ymin; v<=ymax; v+=ystep) {
+    el("line", { x1:m.l, x2:W-m.r, y1:y(v), y2:y(v), class:"gridline" }, svg);
+    el("text", { x:m.l-8, y:y(v)+4, "text-anchor":"end", class:"axis" }, svg).textContent = usd ? "$"+v.toLocaleString() : v+"tr";
+  }
+  for (let v=xmin; v<=xmax; v+=400) {
+    el("line", { x1:x(v), x2:x(v), y1:m.t, y2:H-m.b, class:"gridline" }, svg);
+    el("text", { x:x(v), y:H-m.b+18, "text-anchor":"middle", class:"axis" }, svg).textContent = v.toLocaleString();
+  }
+  el("text", { x:(W+m.l)/2, y:H-6, "text-anchor":"middle", class:"axis" }, svg).textContent = "Battery capacity (mAh) →";
+  // connect each 2026 model to its predecessor
+  data.forEach(p => {
+    const q = p.pred && byId[p.pred];
+    if (q && data.includes(q)) el("line", { x1:x(q.mah), y1:y(q[K]), x2:x(p.mah), y2:y(p[K]), stroke:color(p), "stroke-width":1.5, "stroke-dasharray":"3 4", opacity:.7 }, svg);
+  });
+  // label offsets to avoid collisions in dense spots
+  const OFF = { i17:[10,4], iair:[10,4], i17p:[-10,14,"end"], i17pm:[-10,-10,"end"], i18p:[10,-8], i18pm:[10,4], p10:[-10,14,"end"], p11:[10,4], p10p:[-10,-8,"end"], p11p:[10,16], p10pxl:[10,16], p11pxl:[10,-10], p10f:[10,4], p11f:[10,4] };
+  const OFF_VND = { p10f:[-10,16,"end"], p10p:[-10,-10,"end"] };
+  data.forEach(p => {
+    const g = el("g", { class:"hit" }, svg);
+    el("circle", { cx:x(p.mah), cy:y(p[K]), r:16, fill:"transparent" }, g);
+    const old = p.year===2025;
+    el("circle", { cx:x(p.mah), cy:y(p[K]), r:7, fill: old ? "var(--surface)" : color(p), stroke: old ? color(p) : "var(--surface)", "stroke-width": 2 }, g);
+    const o = (!usd && OFF_VND[p.id]) || OFF[p.id] || [10,4];
+    const t = el("text", { x:x(p.mah)+o[0], y:y(p[K])+o[1], "text-anchor": o[2]||"start" }, g);
+    t.textContent = p.name + (usd && p.priceTier ? " (256GB)" : "");
+    if (!old) t.setAttribute("style","fill:var(--ink);font-weight:600");
+    bindTip(g, p);
+  });
+}
+
+/* camera zoom range: log scale 0.5x–10x */
+function zoomChart(rows) {
+  const host = document.getElementById("zoom"); host.innerHTML = "";
+  if (!rows.length) { host.textContent = "No models match these filters."; return; }
+  const data = [...rows].sort((a,b)=>ORDER.indexOf(a.id)-ORDER.indexOf(b.id));
+  const W = 1000, labelW = 150, rowH = 30, top = 8, axisH = 26, r0 = 18;
+  const H = top + data.length*rowH + axisH;
+  const svg = el("svg", { viewBox:`0 0 ${W} ${H}`, role:"img", "aria-label":"Camera zoom range by model" }, host);
+  const lo = Math.log(0.5), hi = Math.log(10);
+  const x = z => labelW + r0 + (Math.log(z)-lo)/(hi-lo)*(W-labelW-2*r0-10);
+  const rad = mp => 3 + Math.sqrt(mp)*0.95;
+  [0.5,1,2,4,5,8,10].forEach(z => {
+    el("line", { x1:x(z), x2:x(z), y1:top-4, y2:H-axisH+2, class:"gridline" }, svg);
+    el("text", { x:x(z), y:H-6, "text-anchor":"middle", class:"axis" }, svg).textContent = z+"x";
+  });
+  data.forEach((p,i) => {
+    const c = CAM[p.id], cy = top + i*rowH + rowH/2;
+    const g = el("g", { class:"hit" }, svg);
+    el("rect", { x:0, y:cy-rowH/2, width:W, height:rowH, fill:"transparent" }, g);
+    const lab = el("text", { x:labelW-8, y:cy+4, "text-anchor":"end" }, g);
+    lab.textContent = p.name;
+    if (p.year===2026) lab.setAttribute("style","fill:var(--ink);font-weight:600");
+    const lenses = [[0.5,c.uw],[1,c.main]].concat(c.tele ? [[c.tele[1],c.tele[0]]] : []).filter(l=>l[1]);
+    const maxZ = Math.max(...lenses.map(l=>l[0]), ...c.crops);
+    const minZ = Math.min(...lenses.map(l=>l[0]));
+    el("line", { x1:x(minZ), x2:x(maxZ), y1:cy, y2:cy, stroke:color(p), "stroke-width":2, opacity:.45 }, g);
+    c.crops.forEach(z => el("circle", { cx:x(z), cy, r:5, fill:"var(--surface)", stroke:color(p), "stroke-width":2 }, g));
+    lenses.forEach(([z,mp]) => el("circle", { cx:x(z), cy, r:rad(mp), fill:color(p), stroke:"var(--surface)", "stroke-width":2, opacity: p.year===2025 ? .55 : 1 }, g));
+    bindTip(g, p, camTip);
+  });
+}
+function camTip(p) {
+  const c = CAM[p.id];
+  const parts = [
+    c.uw ? `Ultrawide ${c.uw}MP` : "No ultrawide",
+    `Main ${c.main}MP`,
+    c.tele ? `Telephoto ${c.tele[0]}MP, ${c.tele[1]}x optical` : "No telephoto (2x crop only)",
+    `Optical-quality crops: ${c.crops.map(z=>z+"x").join(", ")}`,
+    `Front ${c.front}`,
+    `Best video: ${c.video ?? "not published"}`,
+  ];
+  if (c.extra) parts.push(c.extra);
+  return `<b>${p.name}</b> <span style="opacity:.7">${p.year}</span><br>` + parts.join("<br>");
+}
+
+function featTable(rows) {
+  const t = document.getElementById("feat");
+  const data = [...rows].sort((a,b)=>ORDER.indexOf(a.id)-ORDER.indexOf(b.id));
+  const cell = (p, f) => {
+    let v = f.key==="tele" ? (p.tele ? p.tele+"x" : false) : FEAT[p.id][f.key];
+    if (v===true) return `<td class="yes" aria-label="yes">✓</td>`;
+    if (v===false) return `<td class="no" aria-label="no">—</td>`;
+    if (v==null) return `<td class="unk" aria-label="not confirmed">?</td>`;
+    return `<td class="txt">${v}</td>`;
+  };
+  t.innerHTML = `<thead><tr><th scope="col">Model</th>${FEATS.map(f=>`<th scope="col">${f.label}</th>`).join("")}</tr></thead><tbody>` +
+    data.map(p => `<tr><td><i class="brand-dot" style="background:${color(p)};margin-right:8px"></i>${p.name}${p.fold?'<span class="tag">fold</span>':""}</td>${FEATS.map(f=>cell(p,f)).join("")}</tr>`).join("") + "</tbody>";
+}
+
+function delta(a, b, unit, invertGood=false, fmt=v=>v) {
+  if (a==null || b==null) return `<span class="dim">n/a</span>`;
+  const d = +(b - a).toFixed(2);
+  if (d===0) return `<span class="dim">same (${fmt(b)}${unit})</span>`;
+  const good = invertGood ? d<0 : d>0;
+  const sign = d>0 ? "+" : "−";
+  return `<span class="${good?'up':'down'}">${sign}${fmt(Math.abs(d))}${unit}</span> <span class="dim">→ ${fmt(b)}${unit}</span>`;
+}
+function yoyCards(rows) {
+  const host = document.getElementById("yoy"); host.innerHTML = "";
+  const pairs = rows.filter(p=>p.pred).map(p=>[byId[p.pred], p])
+    .filter(([a,b]) => (state.brand==="all"||b.brand===state.brand) && (state.fold||!b.fold));
+  if (!pairs.length) { host.innerHTML = `<p class="dim">No pairs match these filters.</p>`; return; }
+  pairs.forEach(([a,b]) => {
+    const c = document.createElement("div"); c.className = "yoy";
+    const usd = state.cur==="usd", K = pk();
+    const money = usd ? v => "$"+v.toLocaleString() : fmtVnd;
+    const noPrior = usd ? a.priceTier : a[K]==null;
+    c.innerHTML = `
+      <div class="yoy-title"><i class="brand-dot" style="background:${color(b)}"></i><h3>${b.name}</h3><span class="arrow">from ${a.name}</span></div>
+      <dl>
+        <dt>Price</dt><dd>${noPrior ? `<span class="dim">${money(b[K])} (no 512GB price for ${a.name})</span>` : delta(a[K],b[K],"",true,money)}</dd>
+        <dt>Battery</dt><dd>${delta(a.mah,b.mah," mAh",false,v=>v.toLocaleString())}</dd>
+        <dt>Weight</dt><dd>${delta(a.weight,b.weight," g",true)}</dd>
+        <dt>Brightness</dt><dd>${delta(a.nits,b.nits," nits",false,v=>v.toLocaleString())}</dd>
+        <dt>Wired</dt><dd>${delta(a.wired,b.wired," W")}</dd>
+        <dt>Wireless</dt><dd>${delta(a.wireless,b.wireless," W")}</dd>
+        ${a.video && b.video ? `<dt>Video</dt><dd>${delta(a.video,b.video," h")}</dd>` : ""}
+      </dl>`;
+    host.appendChild(c);
+  });
+}
+
+/* table */
+const COLS = [
+  { key:"name", label:"Model", type:"text" },
+  { key:"year", label:"Year", type:"num" },
+  { key:"price", label:"US $", type:"num", better:"low" },
+  { key:"vnd", label:"HCMC ₫", type:"num", better:"low" },
+  { key:"chip", label:"Chip", type:"text" },
+  { key:"ram", label:"RAM GB", type:"num", better:"high" },
+  { key:"screen", label:"Screen in", type:"text" },
+  { key:"nits", label:"Peak nits", type:"num", better:"high" },
+  { key:"mah", label:"Battery mAh", type:"num", better:"high" },
+  { key:"video", label:"Video h", type:"num", better:"high" },
+  { key:"weight", label:"Weight g", type:"num", better:"low" },
+  { key:"thick", label:"Thick mm", type:"num", better:"low" },
+  { key:"tele", label:"Tele zoom", type:"num", better:"high" },
+  { key:"wired", label:"Wired W", type:"num", better:"high" },
+  { key:"wireless", label:"Wireless W", type:"num", better:"high" },
+];
+let sort = { key:null, dir:1 };
+function table(rows) {
+  const t = document.getElementById("tbl");
+  let data = [...rows];
+  if (sort.key) {
+    data.sort((a,b) => {
+      const av = a[sort.key], bv = b[sort.key];
+      if (av==null) return 1; if (bv==null) return -1;
+      return (typeof av==="string" ? av.localeCompare(bv) : av-bv) * sort.dir;
+    });
+  } else data.sort((a,b)=>ORDER.indexOf(a.id)-ORDER.indexOf(b.id));
+  const best = {};
+  COLS.filter(c=>c.better).forEach(c => {
+    const vals = data.filter(p=>!(c.key==="price" && p.priceTier)).map(p=>p[c.key]).filter(v=>v!=null);
+    if (vals.length) best[c.key] = c.better==="low" ? Math.min(...vals) : Math.max(...vals);
+  });
+  const th = COLS.map(c => `<th scope="col"><button type="button" data-k="${c.key}" ${sort.key===c.key?`data-dir="${sort.dir>0?'▲':'▼'}"`:""}>${c.label}</button></th>`).join("");
+  const body = data.map(p => "<tr>" + COLS.map(c => {
+    let v = p[c.key];
+    if (c.key==="name") {
+      const tags = [p.fold?"fold":null, p.priceTier?"256GB":null].filter(Boolean).map(x=>`<span class="tag">${x}</span>`).join("");
+      return `<td><i class="brand-dot" style="background:${color(p)};margin-right:8px"></i>${p.name}${tags}</td>`;
+    }
+    if (v==null) return `<td class="dim">n/a</td>`;
+    const isBest = c.better && v===best[c.key] && !(c.key==="price" && p.priceTier);
+    let shown = c.key==="price" ? "$"+v.toLocaleString() : c.key==="vnd" ? fmtVnd(v) : c.key==="tele" ? v+"x" : typeof v==="number" && v>=1000 && c.key!=="year" ? v.toLocaleString() : v;
+    let note = "";
+    if (c.key==="price" && p.priceNote) note = `<span class="note">retailer</span>`;
+    if (c.key==="vnd" && p.brand==="google") note = `<span class="note">import</span>`;
+    if (c.key==="video" && p.videoNote) note = `<span class="note">${p.videoNote}</span>`;
+    if ((c.key==="weight" || c.key==="thick") && p.weightNote) note = `<span class="note">listing</span>`;
+    if (c.key==="ram" && p.ramNote) note = `<span class="note">${p.ramNote}</span>`;
+    return `<td class="${c.type==="num"?"mono":""}${isBest?" best":""}">${shown}${note}</td>`;
+  }).join("") + "</tr>").join("");
+  t.innerHTML = `<thead><tr>${th}</tr></thead><tbody>${body}</tbody>`;
+  t.querySelectorAll("th button").forEach(b => b.addEventListener("click", () => {
+    const k = b.dataset.k;
+    if (sort.key===k) sort.dir *= -1; else { sort.key = k; sort.dir = COLS.find(c=>c.key===k).better==="high" ? -1 : 1; }
+    table(visible());
+  }));
+}
+
+/* derived camera fields used by the shortlist and head-to-head */
+const VIDEO_RANK = { "4K60":1, "8K (Video Boost)":2, "8K30":3, "4K120":4 };
+PHONES.forEach(p => {
+  const c = CAM[p.id];
+  p.zoomMax = Math.max(...c.crops, c.tele ? c.tele[1] : 0);
+  p.frontMP = parseFloat(c.front);
+  p.videoScore = c.video ? VIDEO_RANK[c.video] : null;
+});
+
+/* ---------- head-to-head ---------- */
+const yes = v => v===true ? "Yes" : v===false ? "No" : v;
+const H2H = [
+  { area:"Price", rows:[
+    { label:"US price, 512GB", get:p=>p.price, fmt:(v,p)=>"$"+v.toLocaleString()+(p.priceTier?" (256GB)":""), better:"low", skip:p=>!!p.priceTier },
+    { label:"HCMC price, 512GB", get:p=>p.vnd, fmt:v=>v.toFixed(2)+"tr", better:"low" },
+  ]},
+  { area:"Display", rows:[
+    { label:"Screen size", get:p=>p.screen, fmt:v=>v+'"' },
+    { label:"Peak brightness", get:p=>p.nits, fmt:v=>v.toLocaleString()+" nits", better:"high" },
+    { label:"Refresh rate", get:p=>p.hz, fmt:v=>"up to "+v+"Hz", better:"high" },
+  ]},
+  { area:"Performance", rows:[
+    { label:"Chip", get:p=>p.chip },
+    { label:"RAM", get:p=>p.ram, fmt:v=>v+" GB", better:"high" },
+  ]},
+  { area:"Battery & charging", rows:[
+    { label:"Battery", get:p=>p.mah, fmt:v=>v.toLocaleString()+" mAh", better:"high", note:"iPhones run longer per mAh, so compare within a brand" },
+    { label:"Video playback", get:p=>p.video, fmt:v=>"up to "+v+" h", better:"high", note:"Apple's rating; Google doesn't publish one" },
+    { label:"Wired charging", get:p=>p.wired, fmt:v=>v+" W", better:"high" },
+    { label:"Wireless charging", get:p=>p.wireless, fmt:v=>v+" W", better:"high" },
+  ]},
+  { area:"Camera", rows:[
+    { label:"Main", get:p=>CAM[p.id].main, fmt:v=>v+"MP", better:"high" },
+    { label:"Ultrawide", get:p=>CAM[p.id].uw ?? 0, fmt:v=>v ? v+"MP" : "none", better:"high" },
+    { label:"Telephoto", get:p=>CAM[p.id].tele ? CAM[p.id].tele[1]*100 + CAM[p.id].tele[0] : 0, fmt:(v,p)=>CAM[p.id].tele ? `${CAM[p.id].tele[0]}MP, ${CAM[p.id].tele[1]}x` : "none", better:"high", note:"Ranked by zoom, then megapixels" },
+    { label:"Max optical-quality zoom", get:p=>p.zoomMax, fmt:v=>v+"x", better:"high" },
+    { label:"Selfie", get:p=>p.frontMP, fmt:(v,p)=>CAM[p.id].front, better:"high" },
+    { label:"Best video", get:p=>p.videoScore, fmt:(v,p)=>CAM[p.id].video + (FEAT[p.id].log ? " + ProRes/Log" : ""), better:"high", note:"Ranked: 4K120 with ProRes/Log, then 8K30, 8K via cloud, 4K60" },
+    { label:"Variable aperture", get:p=>FEAT[p.id].varAp, fmt:yes, better:"bool" },
+  ]},
+  { area:"Build", rows:[
+    { label:"Weight", get:p=>p.weight, fmt:v=>v+" g", better:"low" },
+    { label:"Thickness", get:p=>p.thick, fmt:(v,p)=>v+" mm"+(p.fold?" folded":""), better:"low" },
+    { label:"Foldable", get:p=>p.fold ? "Yes" : "No" },
+  ]},
+  { area:"Features", rows: [
+    { label:"Unlock", get:p=>FEAT[p.id].faceid===true ? "Face ID" : FEAT[p.id].fp ? "Fingerprint + face" : null, note:"Different methods, not scored" },
+    ...["camBtn","action","wifi7","uwb","sat","mag","stereo","k8","k4120","log"].map(k => ({ label:FEATS.find(f=>f.key===k).label, get:p=>FEAT[p.id][k], fmt:v=>v===true?"Yes":v===false?"No":v, better:"bool" })),
+    { label:"USB-C speed", get:p=>FEAT[p.id].usb, rank:v=>v==="USB 2"?0:1, better:"rank" },
+    { label:"OS updates", get:p=>FEAT[p.id].updates, rank:v=>v==="7 years"?1:0, better:"rank", note:"Apple doesn't promise a number of years" },
+  ]},
+];
+const h2hState = { sel:["p10pxl","i17pm","p11pxl"] };
+try { const s = JSON.parse(localStorage.getItem("phones-h2h")||"null"); if (Array.isArray(s) && s.length>=2 && s.length<=4 && s.every(id=>byId[id])) h2hState.sel = s; } catch(e) {}
+
+function h2hWinners(row, phones) {
+  const vals = phones.map(p => row.get(p));
+  if (!row.better) return [];
+  let score;
+  if (row.better==="bool") score = vals.map(v => v===true ? 1 : v===false ? 0 : (typeof v==="string" ? 0.5 : null));
+  else if (row.better==="rank") score = vals.map(v => v==null ? null : row.rank(v));
+  else score = vals.map((v,i) => v==null || (row.skip && row.skip(phones[i])) ? null : (row.better==="low" ? -v : v));
+  const known = score.filter(v=>v!=null);
+  if (known.length < 2) return [];
+  const best = Math.max(...known);
+  if (known.every(v=>v===best)) return [];
+  return phones.filter((p,i)=>score[i]===best).map(p=>p.id);
+}
+
+function h2h() {
+  const chips = document.getElementById("h2h-chips");
+  const sel = h2hState.sel, full = sel.length>=4;
+  chips.innerHTML = [...PHONES].sort((a,b)=>ORDER.indexOf(a.id)-ORDER.indexOf(b.id)).map(p => {
+    const on = sel.includes(p.id);
+    return `<button type="button" class="chip" data-id="${p.id}" aria-pressed="${on}" ${!on && full ? "disabled" : ""}><i class="brand-dot" style="background:${color(p)}"></i>${p.name}</button>`;
+  }).join("");
+  chips.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+    const id = b.dataset.id, i = h2hState.sel.indexOf(id);
+    if (i>=0) h2hState.sel.splice(i,1); else if (h2hState.sel.length<4) h2hState.sel.push(id);
+    try { localStorage.setItem("phones-h2h", JSON.stringify(h2hState.sel)); } catch(e) {}
+    h2h();
+    const again = document.querySelector(`#h2h-chips .chip[data-id="${id}"]`); if (again) again.focus();
+  }));
+  const status = document.getElementById("h2h-status");
+  const score = document.getElementById("h2h-score"), table = document.getElementById("h2h-table");
+  if (sel.length < 2) {
+    status.textContent = "Pick at least 2 phones to compare.";
+    score.innerHTML = ""; table.innerHTML = ""; return;
+  }
+  status.textContent = full ? "4 phones selected. Deselect one to swap it for another." : `${sel.length} phones selected. You can add ${4-sel.length} more.`;
+  const phones = sel.map(id=>byId[id]);
+  const wins = Object.fromEntries(phones.map(p=>[p.id, { total:0, areas:{} }]));
+  let body = "";
+  H2H.forEach(sec => {
+    body += `<tr class="area"><th scope="rowgroup" colspan="1">${sec.area}</th>${phones.map(()=>"<td></td>").join("")}</tr>`;
+    sec.rows.forEach(row => {
+      const w = h2hWinners(row, phones);
+      w.forEach(id => { wins[id].total++; wins[id].areas[sec.area] = (wins[id].areas[sec.area]||0)+1; });
+      const tds = phones.map(p => {
+        const v = row.get(p);
+        let shown;
+        if (v==null) shown = `<span class="${row.better==="bool"?"unk":"dim"}">${row.better==="bool"?"?":"n/a"}</span>`;
+        else shown = row.fmt ? row.fmt(v,p) : v;
+        return `<td class="${w.includes(p.id)?"best":""}">${shown}</td>`;
+      }).join("");
+      body += `<tr><th scope="row">${row.label}${row.note?`<span class="note" style="display:block;margin:2px 0 0">${row.note}</span>`:""}</th>${tds}</tr>`;
+    });
+  });
+  table.innerHTML = `<thead><tr><th scope="col">Area</th>${phones.map(p=>`<th scope="col"><i class="brand-dot" style="background:${color(p)};margin-right:6px"></i>${p.name}</th>`).join("")}</tr></thead><tbody>${body}</tbody>`;
+  const most = Math.max(...phones.map(p=>wins[p.id].total));
+  score.innerHTML = phones.map(p => {
+    const a = wins[p.id].areas;
+    return `<div class="score-card"${wins[p.id].total===most?' style="border-color:var(--good-ink)"':""}>
+      <h3 style="display:flex;gap:6px;align-items:center"><i class="brand-dot" style="background:${color(p)}"></i>${p.name}</h3>
+      <div class="wins">${wins[p.id].total} <small>rows won</small></div>
+      <div class="areas">${H2H.filter(s=>a[s.area]).map(s=>`<span class="tag" style="margin:0">${s.area} ${a[s.area]}</span>`).join("") || '<span class="dim" style="font-size:12px">No outright wins</span>'}</div>
+    </div>`;
+  }).join("");
+}
+
+function shortlist() {
+  const fmtTr = v => v.toFixed(2)+"tr";
+  let lastGroup = null;
+  document.getElementById("picks").innerHTML = SHORT.map(sp => {
+    const p = byId[sp.id];
+    const g = sp.group && sp.group!==lastGroup ? `<h3 class="pick-group">${sp.group}</h3>` : "";
+    if (sp.group) lastGroup = sp.group;
+    return g + `<article class="pick${sp.top?" top":""}">
+      <div class="role">${sp.role}</div>
+      <h3 style="display:flex;gap:8px;align-items:center"><i class="brand-dot" style="background:${color(p)}"></i>${p.name}</h3>
+      <div class="price">${fmtTr(p.vnd)} <small>512GB · ${VN[p.id].where.split(" – ")[0]}</small></div>
+      <ul>${sp.gains.map(g=>`<li>${g}</li>`).join("")}</ul>
+      <p class="verdict">${sp.verdict}</p>
+    </article>`;
+  }).join("");
+  const rows = SHORT.map(sp => byId[sp.id]);
+  const host = document.getElementById("sl-bars"); host.innerHTML = "";
+  const order = SHORT.map(sp=>sp.id);
+  SL_METRICS.forEach(m => host.appendChild(barChart({ ...m, W:340, labelW:112, valW:92, order }, rows)));
+}
+
+function render() {
+  const rows = visible();
+  scatter(rows);
+  const bars = document.getElementById("bars"); bars.innerHTML = "";
+  [priceMetric(), ...METRICS].forEach(m => bars.appendChild(barChart(m, rows)));
+  zoomChart(rows);
+  featTable(rows);
+  yoyCards(PHONES.filter(p => (state.year!=="2025")));
+  table(rows);
+  document.querySelectorAll("#f-brand button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.v===state.brand));
+  document.querySelectorAll("#f-year button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.v===state.year));
+  document.querySelectorAll("#f-cur button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.v===state.cur));
+  document.getElementById("f-fold").checked = state.fold;
+  try { localStorage.setItem("phones-filter", JSON.stringify(state)); } catch(e) {}
+}
+document.querySelectorAll("#f-brand button").forEach(b=>b.addEventListener("click",()=>{ state.brand=b.dataset.v; render(); }));
+document.querySelectorAll("#f-year button").forEach(b=>b.addEventListener("click",()=>{ state.year=b.dataset.v; render(); }));
+document.querySelectorAll("#f-cur button").forEach(b=>b.addEventListener("click",()=>{ state.cur=b.dataset.v; render(); }));
+document.getElementById("f-fold").addEventListener("change", e=>{ state.fold=e.target.checked; render(); });
+
+document.getElementById("sources").innerHTML = SOURCES.map(([t,u])=>`<li><a href="${u}" target="_blank" rel="noopener">${t}</a></li>`).join("") +
+  `<li>Pixel 10 / 10 Pro / 10 Pro XL 512GB launch prices ($1,219 and $1,319; base Pixel 10 at $899 for 256GB) and the iPhone 17 Pro / Pro Max specs come from the Aug and Sept 2025 launch spec sheets.</li>`;
+shortlist();
+h2h();
+render();
+</script>
+</body>
+</html>
